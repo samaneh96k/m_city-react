@@ -43,7 +43,8 @@ const MeetPlayers = () => {
                           <div>
                           {showTextTag('Players')}
                           </div>
-                          <Tag bck="#fff" size="27px" color="#0e1731" link={true} linkTo="/the_team" add={{display:"inline-block",marginBottom:'20px', border:'1px solid #0e1731'}}>Meet Them here</Tag>
+                          <Tag bck="#fff" size="27px" color="#0e1731" link={true} linkTo="/the_team"
+                              add={{ display: "inline-block", marginBottom: '20px', border: '1px solid #0e1731' }}>Meet Them here</Tag>
                       </div>
                   </div>
               </div>

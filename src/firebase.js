@@ -9,6 +9,8 @@ import {
   getDoc
 } from "firebase/firestore/lite";
 import "firebase/auth";
+import "firebase/storage"
+import { getStorage } from "firebase/storage";
 import { cityDb } from "./temp/m-city-export";
 const firebaseConfig = {
   apiKey: "AIzaSyC2TBIY532iMqW3BV8CL6DSjmwmPf4qT_g",
@@ -23,6 +25,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
 const dataMatches = collection(db, "matches");
 const dataplayers = collection(db, "players");
 const datapositions = collection(db, "positions");
@@ -61,6 +64,7 @@ const setData = () => {
 
 export {
   db,
+  storage,
   dataMatches,
   dataplayers,
   datapositions,
