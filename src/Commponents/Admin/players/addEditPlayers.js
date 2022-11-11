@@ -89,7 +89,7 @@ const AddEditPlayers = () => {
         });
     }
   };
-  const updateImageName = filename => {
+  const updateImageName = (filename) => {
     formik.setFieldValue("image", filename);
   };
   useEffect(
