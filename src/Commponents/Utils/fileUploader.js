@@ -10,7 +10,7 @@ const FileUploader = (props) => {
 
   const handleSubmit = (e) => {
       e.preventDefault();
-    const file = e.target[0]?.files[0]
+    const file = e.target[0].files[0]
    props.filename(file.name);
     if (!file) return;
     const storageRef = ref(storage, `player/${file.name}`);

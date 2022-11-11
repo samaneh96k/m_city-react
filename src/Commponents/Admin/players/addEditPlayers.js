@@ -92,6 +92,7 @@ const AddEditPlayers = () => {
   const updateImageName = (filename) => {
     formik.setFieldValue("image", filename);
   };
+
   useEffect(
      () => {
       if (playerid) {
@@ -106,7 +107,7 @@ const AddEditPlayers = () => {
               getDownloadURL(
                 ref(storage, `player/${doc.data().image}`)
               ).then(downloadURL => {
-                updateImageName(doc.data().image);
+               
                 setImgUrl(downloadURL);
               });
               setFormType("edit");
