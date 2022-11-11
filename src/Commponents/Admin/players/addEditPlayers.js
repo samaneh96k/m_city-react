@@ -92,7 +92,10 @@ const AddEditPlayers = () => {
   const updateImageName = (filename) => {
     formik.setFieldValue("image", filename);
   };
-
+  const resetImage = () => {
+    formik.setFieldValue("image", '');
+    setImgUrl('');
+}
   useEffect(
      () => {
       if (playerid) {
@@ -134,6 +137,7 @@ const AddEditPlayers = () => {
             defaultImage={imgUrl}
             defaultImageName={formik.values.image}
             filename={filename => updateImageName(filename)}
+            resetImage={()=>resetImage()}
           />
 
           <form onSubmit={formik.handleSubmit}>

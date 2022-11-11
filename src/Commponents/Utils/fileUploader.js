@@ -6,11 +6,13 @@ import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 const FileUploader = (props) => {
 
   const [imgUrl, setImgUrl] = useState(null);
+ 
   const [progresspercent, setProgresspercent] = useState(0);
 
   const handleSubmit = (e) => {
       e.preventDefault();
     const file = e.target[0].files[0]
+    
    props.filename(file.name);
     if (!file) return;
     const storageRef = ref(storage, `player/${file.name}`);
@@ -32,7 +34,12 @@ const FileUploader = (props) => {
       }
     );
   }
-
+  const uploadAgain = () => {
+   
+    setProgresspercent(false);
+    setImgUrl("");
+    props.resetImage();
+}
   return (
     <div >
       <form onSubmit={handleSubmit} className='form'>
@@ -51,7 +58,8 @@ const FileUploader = (props) => {
       }
         {
         props.defaultImage ?
-        <img src={props.defaultImage} alt='uploaded file' height={200} />:null
+        <div className="image_upload_container"> <img src={props.defaultImage} alt='uploaded file' height={200} />
+          <div className="remove" onClick={()=>uploadAgain()}>remove</div></div>: null
       }
     </div>
   );
