@@ -101,7 +101,7 @@ const AddEditPlayers = () => {
             query(dataplayers, where(documentId("id"), "==", playerid))
           )
         ).then(snapshot => {
-          snapshot.docs.map((doc) => {
+          snapshot.docs.forEach((doc) => {
             if (doc.data()) {
               getDownloadURL(
                 ref(storage, `player/${doc.data().image}`)

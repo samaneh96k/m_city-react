@@ -137,7 +137,7 @@ const AddEditMatches = () => {
             query(dataMatches, where(documentId("id"), "==", matchid))
           )
         ).then(snapshot => {
-          snapshot.docs.map((doc) => {
+          snapshot.docs.forEach((doc) => {
             if (doc.data()) {
               setFormType("edit");
               setValues(doc.data());
