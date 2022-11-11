@@ -23,6 +23,8 @@ import AddEditPlayers from './Commponents/Admin/players/addEditPlayers';
 import TheTeam from './Commponents/TheTeam/index';
 import AddEditMatches from './Commponents/Admin/Matches/addEditMatches';
 import AdminMatches from './Commponents/Admin/Matches/index';
+import TheMatches from './Commponents/TheMatches';
+import NotFound from './Commponents/NotFound/index';
 
 const App = () => {
   const auth = getAuth(db.app);
@@ -41,8 +43,10 @@ const App = () => {
         
         <Route path='/dashboard' exact element={user?<Dashboard/>:<Home />} />
         <Route path='/team' exact element={<TheTeam/>} />
+        <Route path='/matches' exact element={<TheMatches/>} />
         <Route path='/sign_in' exact element={user?<Dashboard/>:<SignIn />} />
         <Route path='/' exact element={<Home />} />
+        <Route path='*'  element={<NotFound />} />
       </Routes>
       <ToastContainer />
       <Footer/>
