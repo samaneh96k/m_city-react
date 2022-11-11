@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { db } from '../../firebase';
 import { toast } from 'react-toastify';
 import logo from '../../Resources/images/logos/manchester_city_logo.png';
-import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
 import {FormHelperText} from '@mui/material'
 export const CityLogo = (props) => {

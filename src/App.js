@@ -1,6 +1,5 @@
 
 import React from 'react'
-import { render } from "react-dom";
 import {
   BrowserRouter,
   Routes,
@@ -14,8 +13,6 @@ import Footer from './Commponents/Header-footer/footer';
 import Home from './Commponents/Home';
 import Header from './Commponents/Header-footer/header';
 import SignIn from './Commponents/SignIn/index';
-import Dashboard from './Commponents/Admin/dashboard';
-import AuthGuard from './HOC/Auth';
 import { getAuth } from 'firebase/auth';
 import { db } from './firebase';
 import AdminPlayers from './Commponents/Admin/players/index';

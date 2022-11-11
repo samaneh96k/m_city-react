@@ -2,16 +2,12 @@ import { initializeApp } from "firebase/app";
 import {
   getFirestore,
   collection,
-  setDoc,
-  doc,
-  getDocs,
-  addDoc,
-  getDoc
+ 
 } from "firebase/firestore/lite";
 import "firebase/auth";
 import "firebase/storage"
 import { getStorage } from "firebase/storage";
-import { cityDb } from "./temp/m-city-export";
+
 const firebaseConfig = {
   apiKey: "AIzaSyC2TBIY532iMqW3BV8CL6DSjmwmPf4qT_g",
   authDomain: "m-city-6519d.firebaseapp.com",
@@ -32,35 +28,9 @@ const datapositions = collection(db, "positions");
 const datapromotions = collection(db, "promotions");
 const datateams = collection(db, "teams");
 
-const setData = () => {
-  //  cityDb.matches.forEach(async (i) => {
-  //    const dataMatche = collection(db, "matches");
-  //    const docRef = await addDoc(dataMatche, i);
-  //  })
-  // cityDb.players.forEach(async (i) => {
-  //   const docRef = await addDoc(collection(db, "players"), i);
-  //   console.log(docRef)
-  // })
-  // cityDb.positions.forEach(async (i) => {
-  //   const docRef = await addDoc(collection(db, "positions"), i);
-  //   console.log(docRef)
-  // })
-  // cityDb.promotions.forEach(async (i) => {
-  //   const docRef = await addDoc(collection(db, "promotions"), i);
-  //   console.log(docRef)
-  // })
-  // cityDb.teams.forEach(async (i) => {
-  //   const docRef = await addDoc(collection(db, "teams"), i);
-  //   console.log(docRef)
-  // })
-};
-//setData()
 
 
 
-// docsSnap.forEach(doc => {
-//   console.log(doc.data());
-// })
 
 export {
   db,

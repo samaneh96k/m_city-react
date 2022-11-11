@@ -3,7 +3,7 @@ import AdminLayout from "./../../../HOC/AdminLayout";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { dataplayers, db,storage } from "../../../firebase";
+import { dataplayers,storage } from "../../../firebase";
 import {
   TextField,
   Select,

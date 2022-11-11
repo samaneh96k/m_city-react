@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table ,TableBody,TableCell,TableHead,TableRow} from '@mui/material';
 import { datapositions } from '../../firebase';
-import { getDoc, getDocs } from 'firebase/firestore/lite';
+import { getDocs } from 'firebase/firestore/lite';
 
 
 const LeagueTable = () => {

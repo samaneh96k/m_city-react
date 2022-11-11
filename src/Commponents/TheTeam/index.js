@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import PlayersCard from "../Utils/playersCard";
 import { Slide } from "react-awesome-reveal";
-import { db, dataplayers, storage } from "../../firebase";
-import { doc, getDocs } from "firebase/firestore/lite";
+import {  dataplayers, storage } from "../../firebase";
+import {  getDocs } from "firebase/firestore/lite";
 import { showToastError } from "../Utils/tools";
 import { Promise } from "core-js";
 import { getDownloadURL, ref } from "firebase/storage";
