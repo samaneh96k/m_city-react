@@ -37,18 +37,17 @@ const TheMatches = () => {
     },
     [matches, state]
   );
-    const showPlayed = (played) => {
-        const list = matches.filter((match) => {
-            return match.final === played
-        });
-        dispatch({
-            ...state,
-            filterMatches: played === 'All' ? matches : list,
-            playedFilter: played,
-            resultFilter:'All'
-        })
-    }
-آ
+  const showPlayed = (played) => {
+    const list = matches.filter((match) => {
+      return match.final === played
+    });
+    dispatch({
+      ...state,
+      filterMatches: played === 'All' ? matches : list,
+      playedFilter: played,
+      resultFilter: 'All'
+    })
+  }
 
     const showResult = (result) => {
         const list = matches.filter((match) => {

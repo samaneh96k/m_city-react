@@ -22,6 +22,7 @@ import AddEditMatches from './Commponents/Admin/Matches/addEditMatches';
 import AdminMatches from './Commponents/Admin/Matches/index';
 import TheMatches from './Commponents/TheMatches';
 import NotFound from './Commponents/NotFound/index';
+import Dashboard from './Commponents/Admin/dashboard';
 
 const App = () => {
   const auth = getAuth(db.app);
