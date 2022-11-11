@@ -2,13 +2,12 @@ import React from 'react';
 import { AppBar, Toolbar, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import {  CityLogo} from '../Utils/tools';
-import { useNavigate } from "react-router-dom";
 
-import { showToastError, showToastSucces,handleLogout } from '../Utils/tools';
+import { handleLogout } from '../Utils/tools';
 
 const Header = ({ user }) => {
-    const navigate = useNavigate();
-    //handleLogout(navigate);
+   
+   
   return (
       <AppBar
           position='fixed'

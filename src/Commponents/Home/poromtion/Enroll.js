@@ -22,9 +22,9 @@ const Enroll = () => {
   })
   const submitForm = async (values) => {
     try {
-      console.log(values)
+  
       const isOnTheList =await getDocs( query(datapromotions, where("email", "==", values.email)));
-      console.log(isOnTheList)
+      
       if (isOnTheList.docs.length >= 1) {
         showToastError("sorry you are on the list already")
         setLoading(false)

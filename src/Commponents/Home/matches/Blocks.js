@@ -3,6 +3,7 @@ import {Slide} from "react-awesome-reveal"
 import {dataMatches} from '../../../firebase'
 import {  getDocs } from 'firebase/firestore/lite';
 import MatchesBlock from '../../Utils/matches_blocks';
+import { showToastError } from '../../Utils/tools';
 const Blocks = () => {
     const [matches, setMatches] = useState([])
   useEffect( () => {
@@ -14,8 +15,7 @@ const Blocks = () => {
           ...doc.data()
         }))
         setMatches(matches)
-      }).catch(error =>
-        console.log(error))
+      }).catch(error =>showToastError(error))
     }
   }, [matches]);
   

@@ -3,7 +3,7 @@ import AdminLayout from "./../../../HOC/AdminLayout";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { dataplayers,storage } from "../../../firebase";
+import { dataplayers, storage } from "../../../firebase";
 import {
   TextField,
   Select,
@@ -36,7 +36,7 @@ const defaultValue = {
   lastname: "",
   number: "",
   position: "",
-  image:""
+  image: ""
 };
 
 const AddEditPlayers = () => {
@@ -57,10 +57,9 @@ const AddEditPlayers = () => {
         .min(0, "The Minimum is zero")
         .max(100, "The Maximum is 100"),
       position: Yup.string().required("This input is Required"),
-      image:Yup.string().required("This input is Required"),
+      image: Yup.string().required("This input is Required")
     }),
     onSubmit: values => {
-      console.log(values)
       submitForm(values);
     }
   });
@@ -78,13 +77,16 @@ const AddEditPlayers = () => {
           showToastError(error);
         });
     } else {
-        updateDoc(doc(dataplayers, playerid), dataSubmit).then(() => {
-            showToastSucces("player updated")
-        }).catch(error => {
-            showToastError(error)
-        }).finally(() => {
-            setLoading(false)
+      updateDoc(doc(dataplayers, playerid), dataSubmit)
+        .then(() => {
+          showToastSucces("player updated");
         })
+        .catch(error => {
+          showToastError(error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     }
   };
   useEffect(
@@ -98,9 +100,11 @@ const AddEditPlayers = () => {
         ).then(snapshot => {
           snapshot.docs.map(doc => {
             if (doc.data()) {
-              getDownloadURL(ref(storage,`player/${doc.data().image}`)).then((downloadURL) => {
-                updateImageName(doc.data().image)
-                setImgUrl(downloadURL)
+              getDownloadURL(
+                ref(storage, `player/${doc.data().image}`)
+              ).then(downloadURL => {
+                updateImageName(doc.data().image);
+                setImgUrl(downloadURL);
               });
               setFormType("edit");
               setValues(doc.data());
@@ -115,28 +119,25 @@ const AddEditPlayers = () => {
       }
     },
     [playerid]
-
   );
 
-  const updateImageName = (filename) => {
-  
-    formik.setFieldValue('image', filename)
- 
-      
-  }
+  const updateImageName = filename => {
+    formik.setFieldValue("image", filename);
+  };
   return (
     <AdminLayout title={formType === "add" ? "Add Player" : "Edit Player"}>
-          <div className="editplayers_dialog_wrapper">
-              
-              <div>
-          <FileUploader defaultImage={imgUrl} defaultImageName={formik.values.image} filename={(filename) => updateImageName(filename)} />
-        
+      <div className="editplayers_dialog_wrapper">
+        <div>
+          <FileUploader
+            defaultImage={imgUrl}
+            defaultImageName={formik.values.image}
+            filename={filename => updateImageName(filename)}
+          />
+
           <form onSubmit={formik.handleSubmit}>
-           
             <hr />
             <h4>Player info</h4>
             <div className="mb-5">
-        
               <FormControl>
                 <TextField
                   id="name"

@@ -48,7 +48,7 @@ const TheMatches = () => {
             resultFilter:'All'
         })
     }
-    console.log(state.filterMatches)
+آ
 
     const showResult = (result) => {
         const list = matches.filter((match) => {

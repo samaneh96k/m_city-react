@@ -19,7 +19,7 @@ const TheTeam = () => {
               id: doc.id,
               ...doc.data()
             }));
-            console.log(players);
+          
             let promises = [];
 
             players.forEach((player, index) => {
@@ -38,7 +38,7 @@ const TheTeam = () => {
           Promise.all(promises).then(() => {
                 setPlayers(players);
               });
-            console.log(promises);
+          
           
           })
           .catch(error => {

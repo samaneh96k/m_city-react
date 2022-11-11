@@ -7,7 +7,7 @@ import { showToastError,showToastSucces } from '../Utils/tools';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { db } from "../../firebase";
 const SignIn = props => {
-  console.log(props)
+
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const formik = useFormik({
@@ -23,18 +23,18 @@ const SignIn = props => {
     }),
     onSubmit: values => {
       setLoading(true);
-      console.log(values);
+  
       submitForm(values);
     }
   });
 
   const submitForm = values => {
     const auth = getAuth(db.app);
-    console.log(auth);
+   
     signInWithEmailAndPassword(auth, values.email, values.password)
         .then(userCredential => {
           showToastSucces("Welcome back !!")
-        console.log(userCredential);
+      
         navigate("/dashboard");
       })
       .catch(error => {

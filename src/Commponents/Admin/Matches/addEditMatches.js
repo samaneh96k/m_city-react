@@ -60,7 +60,7 @@ const AddEditMatches = () => {
       final: Yup.mixed().required("This input is required").oneOf(["yes", "no"])
     }),
     onSubmit: values => {
-      console.log(values);
+     
       submitForm(values);
     }
   });
@@ -127,7 +127,7 @@ const AddEditMatches = () => {
     },
     [teams]
   );
-  console.log(teams);
+
   useEffect(
     async () => {
       if (matchid) {
@@ -153,7 +153,7 @@ const AddEditMatches = () => {
     },
     [matchid]
   );
-  console.log(values);
+
 
   return (
     <AdminLayout title={formType === "add" ? "Add Match" : "Edit Match"}>
