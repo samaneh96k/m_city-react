@@ -129,15 +129,15 @@ const AddEditMatches = () => {
   );
 
   useEffect(
-    async () => {
+     () => {
       if (matchid) {
-        await getDocs(
+         getDocs(
           (
             dataMatches,
             query(dataMatches, where(documentId("id"), "==", matchid))
           )
         ).then(snapshot => {
-          snapshot.docs.map(doc => {
+          snapshot.docs.map((doc) => {
             if (doc.data()) {
               setFormType("edit");
               setValues(doc.data());

@@ -18,7 +18,7 @@ import {
   textErrorHelper,
   selectErrorHelper
 } from "../../Utils/tools";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   addDoc,
   doc,
@@ -89,16 +89,19 @@ const AddEditPlayers = () => {
         });
     }
   };
+  const updateImageName = filename => {
+    formik.setFieldValue("image", filename);
+  };
   useEffect(
-    async () => {
+     () => {
       if (playerid) {
-        await getDocs(
+         getDocs(
           (
             dataplayers,
             query(dataplayers, where(documentId("id"), "==", playerid))
           )
         ).then(snapshot => {
-          snapshot.docs.map(doc => {
+          snapshot.docs.map((doc) => {
             if (doc.data()) {
               getDownloadURL(
                 ref(storage, `player/${doc.data().image}`)
@@ -121,9 +124,7 @@ const AddEditPlayers = () => {
     [playerid]
   );
 
-  const updateImageName = filename => {
-    formik.setFieldValue("image", filename);
-  };
+
   return (
     <AdminLayout title={formType === "add" ? "Add Player" : "Edit Player"}>
       <div className="editplayers_dialog_wrapper">
@@ -202,7 +203,7 @@ const AddEditPlayers = () => {
               color="primary"
               disabled={loading}
             >
-              {formType == "add" ? "Add Player" : "Edit Player"}
+              {formType === "add" ? "Add Player" : "Edit Player"}
             </Button>
           </form>
         </div>
